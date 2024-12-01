@@ -4,7 +4,7 @@ const express = require("express");
 const Movie = require("./movie.schema");
 
 const app = express();
-const MONGO_URI = process.env.MONGO_URI ?? "mongodb://localhost";
+const MONGO_URI = process.env.MONGO_URI;
 console.log({ MONGO_URI });
 mongoose
   .connect(MONGO_URI)
@@ -20,5 +20,5 @@ app.get("/", async (_req, res) => {
   return res.json({ data });
 });
 
-const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`running on ${PORT}`));
